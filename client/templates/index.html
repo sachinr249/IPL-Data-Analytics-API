@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Analysis</title>
+</head>
+<body>
+    <h1>Welcome to IPL Analysis</h1>
+    <form action="/teamvteam" method="get">
+        <label for="team1">Select Team 1:</label>
+        <select name="team1">
+            {% for team in teams %}
+                <option value="{{ team }}">{{ team }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="team2">Select Team 2:</label>
+        <select name="team2">
+            {% for team in teams %}
+                <option value="{{ team }}">{{ team }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Analyze">
+    </form>
+    <br>
+    {% if result %}
+      <h2>Analysis Result:</h2>
+        {%for i in result %}
+            <p>{{ i }}:{{result[i]}}</p>
+        {% endfor %}
+    {% endif %}
+    
+</body>
+</html>
